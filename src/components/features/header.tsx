@@ -6,7 +6,7 @@ import bowerLogo from '@/assets/BowerLogo.svg'
 export const Header = () => {
   return (
     <header className="bg-header-bg px-2 py-4 text-header-text md:py-8">
-      <Container className="center flex items-center gap-2 md:gap-10">
+      <Container className="flex items-center gap-2 md:gap-10">
         <Link
           href="bower.io"
           className="transition-transform duration-200 hover:scale-110"
