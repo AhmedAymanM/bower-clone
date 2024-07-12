@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { Header } from '@/components/features/header'
 import { ContentLayout } from '@/components/layouts/content-layout'
+import { Sidebar } from '@/components/features/sidebar'
 
 export const App: FC = () => {
   return (
@@ -8,7 +9,7 @@ export const App: FC = () => {
       <Header />
 
       <ContentLayout className="my-4">
-        <div>sidebar</div>
+        <Sidebar />
         <div>content</div>
       </ContentLayout>
     </>
