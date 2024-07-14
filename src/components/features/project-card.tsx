@@ -7,7 +7,7 @@ type ProjectCardProps = {
   project: Project
 }
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <a
       className="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
@@ -36,3 +36,23 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 const Subtitle = ({ children }: { children: ReactNode }) => (
   <p className="text-xs text-black/60">{children}</p>
 )
+
+// README: ideally rather than repeating myself common code for the
+// project card and placeholder,should be reused in a common skeleton component
+const Placeholder = () => {
+  return (
+    <div className="flex max-h-fit min-h-28 w-full animate-pulse flex-col overflow-hidden rounded-md border border-gray bg-white">
+      <div className="flex flex-wrap-reverse items-center justify-between bg-white-accent p-2">
+        <div className="h-4 w-1/4 bg-gray/40" />
+
+        <div className="h-4 w-8 rounded bg-gray/40"></div>
+      </div>
+      <div className="my-auto p-2">
+        <div className="h-4 w-full rounded bg-gray/40"></div>
+      </div>
+    </div>
+  )
+}
+
+ProjectCard.Placeholder = Placeholder
+export { ProjectCard }

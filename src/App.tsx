@@ -1,21 +1,17 @@
-import { useState, useEffect, type FC } from 'react'
+import { type FC } from 'react'
 
+import { useProjects } from '@/api/get-projects'
 import { ContentLayout } from '@/components/layouts/content-layout'
 import { CardsGrid } from '@/components/layouts/cards-grid'
 import { Header } from '@/components/features/header'
 import { Sidebar } from '@/components/features/sidebar'
 import { ProjectCard } from '@/components/features/project-card'
 import { SearchInput } from '@/components/ui/search-input'
-import { getProjects } from '@/api/get-projects'
+import { ErrorMessage } from '@/components/ui/error-message'
+import { STATUS } from '@/hooks/useAsync'
 
 export const App: FC = () => {
-  const [projects, setProjects] = useState<
-    Awaited<ReturnType<typeof getProjects>>
-  >([])
-
-  useEffect(() => {
-    getProjects().then((projectsData) => setProjects(projectsData))
-  }, [])
+  const { data: projects, status } = useProjects()
 
   return (
     <>
@@ -31,12 +27,23 @@ export const App: FC = () => {
             autoFocus
           />
           <CardsGrid className="py-6">
-            {projects.map((project) => (
+            {projects?.map((project) => (
               <ProjectCard project={project} key={project.name} />
             ))}
+            {status === STATUS.LOADING && (
+              <>
+                <ProjectCard.Placeholder />
+                <ProjectCard.Placeholder />
+                <ProjectCard.Placeholder />
+                <ProjectCard.Placeholder />
+                <ProjectCard.Placeholder />
+              </>
+            )}
+            {status === STATUS.ERROR && <ErrorMessage />}
           </CardsGrid>
         </section>
       </ContentLayout>
     </>
   )
 }
+

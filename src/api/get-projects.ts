@@ -2,6 +2,8 @@ import { type Project } from '@/types/api'
 import { api } from '@/utils/api'
 import { env } from '@/utils/env'
 import { generateSearchQuery } from '@/utils/generateSearchQuery'
+import { useAsync } from '@/hooks/useAsync'
+import { useCallback } from 'react'
 
 type sortEnum =
   | 'rank'
@@ -30,4 +32,13 @@ export const getProjects = ({ sort, q, page }: GetProjectsProps = {}) => {
   })
 
   return api.get<Project[]>('/search' + searchQuery)
+}
+
+export const useProjects = (searchQuery?: GetProjectsProps) => {
+  const memoizedGetProjects = useCallback(
+    () => getProjects(searchQuery),
+    [searchQuery]
+  )
+
+  return useAsync<Project[]>(memoizedGetProjects)
 }
