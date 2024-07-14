@@ -13,6 +13,9 @@ export function useAsync<T = unknown>(asyncFn: () => Promise<T>) {
   const [error, setError] = useState<unknown>()
 
   useEffect(() => {
+    setStatus(STATUS.IDLE)
+    setData(undefined)
+    setError(undefined)
     const fetchAsync = async () => {
       setStatus(STATUS.LOADING)
 

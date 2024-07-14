@@ -34,10 +34,10 @@ export const getProjects = ({ sort, q, page }: GetProjectsProps = {}) => {
   return api.get<Project[]>('/search' + searchQuery)
 }
 
-export const useProjects = (searchQuery?: GetProjectsProps) => {
+export const useProjects = ({ sort, q, page }: GetProjectsProps = {}) => {
   const memoizedGetProjects = useCallback(
-    () => getProjects(searchQuery),
-    [searchQuery]
+    () => getProjects({ sort, q, page }),
+    [page, q, sort]
   )
 
   return useAsync<Project[]>(memoizedGetProjects)
