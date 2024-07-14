@@ -1,14 +1,20 @@
-import { useEffect, type FC } from 'react'
+import { useState, useEffect, type FC } from 'react'
 
-import { Header } from '@/components/features/header'
 import { ContentLayout } from '@/components/layouts/content-layout'
+import { CardsGrid } from '@/components/layouts/cards-grid'
+import { Header } from '@/components/features/header'
 import { Sidebar } from '@/components/features/sidebar'
+import { ProjectCard } from '@/components/features/project-card'
 import { SearchInput } from '@/components/ui/search-input'
 import { getProjects } from '@/api/get-projects'
 
 export const App: FC = () => {
+  const [projects, setProjects] = useState<
+    Awaited<ReturnType<typeof getProjects>>
+  >([])
+
   useEffect(() => {
-    getProjects().then((data) => console.log({ data }))
+    getProjects().then((projectsData) => setProjects(projectsData))
   }, [])
 
   return (
@@ -21,10 +27,14 @@ export const App: FC = () => {
           <SearchInput
             placeholder="Search..."
             autoComplete="off"
-            type="search"
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
+          <CardsGrid className="py-6">
+            {projects.map((project) => (
+              <ProjectCard project={project} key={project.name} />
+            ))}
+          </CardsGrid>
         </section>
       </ContentLayout>
     </>
