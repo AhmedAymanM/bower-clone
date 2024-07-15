@@ -10,9 +10,7 @@ type ContentLayoutProps = {
 
 export const ContentLayout = ({ children, className }: ContentLayoutProps) => {
   return (
-    <Container
-      className={cn('flex min-h-screen flex-col gap-4 md:flex-row', className)}
-    >
+    <Container className={cn('flex flex-col gap-4 md:flex-row', className)}>
       {children}
     </Container>
   )

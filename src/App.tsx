@@ -52,13 +52,6 @@ export const App: FC = () => {
                 key={project.name + project.stars}
               />
             ))}
-            {status === STATUS.SUCCESS && !projects?.length && (
-              <Message
-                className="pt-2"
-                title="No matching results"
-                description={`No projects were found for "${searchQuery}", please try different keywords.`}
-              />
-            )}
             {status === STATUS.LOADING && (
               <>
                 <ProjectCard.Placeholder />
@@ -66,20 +59,30 @@ export const App: FC = () => {
                 <ProjectCard.Placeholder />
                 <ProjectCard.Placeholder />
                 <ProjectCard.Placeholder />
-                <Pagination
-                  className="self-center"
-                  initialPage={0}
-                  totalPages={0}
-                />
               </>
             )}
-            {status === STATUS.ERROR && !projects && (
-              <Message
-                title="Something went wrong"
-                description="Please try again!"
-              />
-            )}
           </CardsGrid>
+          {status === STATUS.SUCCESS && !projects?.length && (
+            <Message
+              className="pt-2"
+              title="No matching results"
+              description={`No projects were found for "${searchQuery}", please try different keywords.`}
+            />
+          )}
+
+          {status === STATUS.ERROR && !projects && (
+            <Message
+              title="Something went wrong"
+              description="Please try again!"
+            />
+          )}
+          {status === STATUS.LOADING && (
+            <Pagination
+              className="self-center"
+              initialPage={0}
+              totalPages={0}
+            />
+          )}
           {totalNavPages > 1 && (
             <Pagination
               className="self-center"
