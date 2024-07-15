@@ -9,6 +9,7 @@ import { ContentLayout } from '@/components/layouts/content-layout'
 import { CardsGrid } from '@/components/layouts/cards-grid'
 import { Header } from '@/components/features/header'
 import { Sidebar } from '@/components/features/sidebar'
+import { Footer } from '@/components/features/footer'
 import { ProjectCard } from '@/components/features/project-card'
 import { ProjectsSearch } from '@/components/features/project-search'
 import { SortProjectsOptions } from '@/components/features/sort-projects-menu'
@@ -93,6 +94,7 @@ export const App: FC = () => {
           )}
         </section>
       </ContentLayout>
+      <Footer />
     </>
   )
 }
