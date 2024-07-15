@@ -9,7 +9,7 @@ type ButtonProps = ComponentPropsWithoutRef<'button'> & {
 export const Button = ({ className, ...props }: ButtonProps) => (
   <button
     className={cn(
-      'rounded-sm border border-gray border-solid p-2 font-bold text-blue-light text-lg hover:border-header-bg',
+      'rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray',
       className
     )}
     {...props}

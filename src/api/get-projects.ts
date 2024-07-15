@@ -20,12 +20,12 @@ type GetProjectsProps = {
   page?: number
 }
 
-const RESULTS_PER_PAGE = 5
+export const PROJECTS_PER_PAGE = 5
 
 export const getProjects = ({ sort, q, page }: GetProjectsProps = {}) => {
   const searchQuery = generateSearchQuery({
     api_key: env.API_KEY,
-    per_page: RESULTS_PER_PAGE.toString(),
+    per_page: PROJECTS_PER_PAGE.toString(),
     page: page?.toString(),
     sort,
     q,
@@ -40,5 +40,5 @@ export const useProjects = ({ sort, q, page }: GetProjectsProps = {}) => {
     [page, q, sort]
   )
 
-  return useAsync<Project[]>(memoizedGetProjects)
+  return useAsync<Awaited<ReturnType<typeof getProjects>>>(memoizedGetProjects)
 }
