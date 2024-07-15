@@ -30,15 +30,20 @@ export function Pagination({
       <Button
         disabled={!currentPage || currentPage === 1}
         onClick={onGetPreviousPage}
+        aria-label="previous page"
       >
-        Previous
+        ⬅︎
       </Button>
       <span className="font-bold">
         {getFormattedCount(currentPage, 'standard')} /{' '}
         {getFormattedCount(totalPages, 'standard')}
       </span>
-      <Button disabled={currentPage === totalPages} onClick={onGetNextPage}>
-        Next
+      <Button
+        disabled={currentPage === totalPages}
+        onClick={onGetNextPage}
+        aria-label="Next page"
+      >
+        ➡︎
       </Button>
     </div>
   )
