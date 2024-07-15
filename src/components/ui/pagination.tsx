@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Button } from './button'
+import { getFormattedCount } from '@/utils/getFormattedCount'
 import { cn, type ClassValue } from '@/utils/cn'
+import { Button } from '@/components/ui/button'
 
 type PaginationProps = {
   totalPages: number
@@ -33,7 +34,8 @@ export function Pagination({
         Previous
       </Button>
       <span className="font-bold">
-        {currentPage} / {totalPages}
+        {getFormattedCount(currentPage, 'standard')} /{' '}
+        {getFormattedCount(totalPages, 'standard')}
       </span>
       <Button disabled={currentPage === totalPages} onClick={onGetNextPage}>
         Next
