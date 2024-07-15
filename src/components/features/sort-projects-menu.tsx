@@ -34,7 +34,7 @@ const SORTING_OPTIONS = [
 
 type SortProjectsOptionsProps = {
   selectedSorting: sortProjectsEnum | undefined
-  onSortChange: (sort: sortProjectsEnum | undefined) => void
+  onSortChange: (sort: sortProjectsEnum) => void
   className?: string
 }
 

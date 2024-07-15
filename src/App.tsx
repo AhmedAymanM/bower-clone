@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react'
+import { useCallback, useState, type FC } from 'react'
 
 import {
   useProjects,
@@ -31,6 +31,17 @@ export const App: FC = () => {
   )
   const totalNavPages = Math.ceil(totalCount / PROJECTS_PER_PAGE)
 
+  const handleSearchChange = useCallback((query: string) => {
+    setSort(undefined)
+    setCurrentPage(1)
+    setSearchQuery(query)
+  }, [])
+
+  const handleSortChange = useCallback((sortBy: sortProjectsEnum) => {
+    setCurrentPage(1)
+    setSort(sortBy)
+  }, [])
+
   return (
     <>
       <Header />
@@ -39,10 +50,10 @@ export const App: FC = () => {
         <Sidebar />
         <section className="flex flex-auto flex-col gap-4">
           <div className="flex flex-col items-center gap-2 sm:flex-row">
-            <ProjectsSearch onSearchChange={setSearchQuery} />
+            <ProjectsSearch onSearchChange={handleSearchChange} />
             <SortProjectsOptions
               selectedSorting={sort}
-              onSortChange={setSort}
+              onSortChange={handleSortChange}
               className="basis-1/3"
             />
           </div>
