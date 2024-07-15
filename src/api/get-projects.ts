@@ -5,17 +5,18 @@ import { generateSearchQuery } from '@/utils/generateSearchQuery'
 import { useAsync } from '@/hooks/useAsync'
 import { useCallback } from 'react'
 
-type sortEnum =
-  | 'rank'
-  | 'stars'
-  | 'dependents_count'
-  | 'dependent_repos_count'
-  | 'latest_release_published_at'
-  | 'contributions_count'
-  | 'created_at'
+export enum sortProjectsEnum {
+  rank = 'rank',
+  stars = 'stars',
+  dependents_count = 'dependents_count',
+  dependent_repos_count = 'dependent_repos_count',
+  latest_release_published_at = 'latest_release_published_at',
+  contributions_count = 'contributions_count',
+  created_at = 'created_at',
+}
 
 type GetProjectsProps = {
-  sort?: sortEnum
+  sort?: sortProjectsEnum
   q?: string
   page?: number
 }

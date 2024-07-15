@@ -1,12 +1,17 @@
 import { useState, type FC } from 'react'
 
-import { useProjects, PROJECTS_PER_PAGE } from '@/api/get-projects'
+import {
+  useProjects,
+  PROJECTS_PER_PAGE,
+  type sortProjectsEnum,
+} from '@/api/get-projects'
 import { ContentLayout } from '@/components/layouts/content-layout'
 import { CardsGrid } from '@/components/layouts/cards-grid'
 import { Header } from '@/components/features/header'
 import { Sidebar } from '@/components/features/sidebar'
 import { ProjectCard } from '@/components/features/project-card'
 import { ProjectsSearch } from '@/components/features/project-search'
+import { SortProjectsOptions } from '@/components/features/sort-projects-menu'
 import { Message } from '@/components/ui/message'
 import { Pagination } from '@/components/ui/pagination'
 import { STATUS } from '@/hooks/useAsync'
@@ -14,11 +19,13 @@ import { STATUS } from '@/hooks/useAsync'
 export const App: FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
+  const [sort, setSort] = useState<sortProjectsEnum>()
 
   const { data: { data: projects, totalCount = 0 } = {}, status } = useProjects(
     {
       q: searchQuery,
       page: currentPage,
+      sort,
     }
   )
   const totalNavPages = Math.ceil(totalCount / PROJECTS_PER_PAGE)
@@ -30,7 +37,14 @@ export const App: FC = () => {
       <ContentLayout className="my-4">
         <Sidebar />
         <section className="flex flex-auto flex-col gap-4">
-          <ProjectsSearch onSearchChange={setSearchQuery} />
+          <div className="flex flex-col items-center gap-2 sm:flex-row">
+            <ProjectsSearch onSearchChange={setSearchQuery} />
+            <SortProjectsOptions
+              selectedSorting={sort}
+              onSortChange={setSort}
+              className="basis-1/3"
+            />
+          </div>
           <CardsGrid>
             {projects?.map((project) => (
               <ProjectCard
