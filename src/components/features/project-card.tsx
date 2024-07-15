@@ -41,7 +41,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
       </div>
       <div className="my-auto p-2">
-        <p className="line-clamp-3">{project.description}</p>
+        <p className="line-clamp-2 text-black-accent">{project.description}</p>
       </div>
     </a>
   )

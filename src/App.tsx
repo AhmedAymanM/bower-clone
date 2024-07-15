@@ -7,7 +7,7 @@ import { Header } from '@/components/features/header'
 import { Sidebar } from '@/components/features/sidebar'
 import { ProjectCard } from '@/components/features/project-card'
 import { ProjectsSearch } from '@/components/features/project-search'
-import { ErrorMessage } from '@/components/ui/error-message'
+import { Message } from '@/components/ui/message'
 import { Pagination } from '@/components/ui/pagination'
 import { STATUS } from '@/hooks/useAsync'
 
@@ -38,6 +38,13 @@ export const App: FC = () => {
                 key={project.name + project.stars}
               />
             ))}
+            {status === STATUS.SUCCESS && !projects?.length && (
+              <Message
+                className="pt-2"
+                title="No matching results"
+                description={`No projects were found for "${searchQuery}", please try different keywords.`}
+              />
+            )}
             {status === STATUS.LOADING && (
               <>
                 <ProjectCard.Placeholder />
@@ -52,7 +59,12 @@ export const App: FC = () => {
                 />
               </>
             )}
-            {status === STATUS.ERROR && !projects && <ErrorMessage />}
+            {status === STATUS.ERROR && !projects && (
+              <Message
+                title="Something went wrong"
+                description="Please try again!"
+              />
+            )}
           </CardsGrid>
           {totalNavPages > 1 && (
             <Pagination

@@ -2,17 +2,13 @@ import type { ComponentPropsWithoutRef } from 'react'
 
 import { cn, type ClassValue } from '@/utils/cn'
 
-type ErrorMessageProps = ComponentPropsWithoutRef<'a'> & {
-  title?: string
-  description?: string
+type MessageProps = ComponentPropsWithoutRef<'a'> & {
+  title: string
+  description: string
   className?: ClassValue
 }
 
-export const ErrorMessage = ({
-  title = 'Something went wrong',
-  description = 'Please try again!',
-  className,
-}: ErrorMessageProps) => (
+export const Message = ({ title, description, className }: MessageProps) => (
   <div
     className={cn(
       'flex flex-col items-center justify-center gap-2 text-center',
