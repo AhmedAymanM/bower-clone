@@ -1,0 +1,518 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App component > renders the App component correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="bg-header-bg px-2 py-4 text-header-text md:py-8"
+  >
+    <div
+      class="mx-auto max-w-5xl px-2 md:px-4 flex items-center gap-2 md:gap-10"
+    >
+      <a
+        class="text-blue hover:underline transition-transform duration-200 hover:scale-110"
+        href="bower.io"
+        rel="noopener"
+        target="_blank"
+      >
+        <img
+          alt="Bower Logo"
+          class="w-10 md:w-[140px]"
+          src="/src/assets/BowerLogo.svg"
+        />
+      </a>
+      <div
+        class="font-bold tracking-tight"
+      >
+        <h1
+          class="text-3xl md:text-6xl"
+        >
+          Bower Search
+        </h1>
+        <h4
+          class="hidden text-xl md:block"
+        >
+          Powered by 
+          <a
+            class="text-blue hover:underline"
+            href="https://libraries.io/"
+            rel="noopener"
+            target="_blank"
+          >
+            libraries.io
+          </a>
+        </h4>
+      </div>
+    </div>
+  </header>
+  <div
+    class="mx-auto max-w-5xl px-2 md:px-4 flex flex-col gap-4 md:flex-row my-4"
+  >
+    <section
+      class="flex flex-col gap-4"
+    >
+      <button
+        class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray m-auto w-full max-w-64 md:hidden"
+      >
+        Menu
+      </button>
+      <nav
+        class="flex flex-col font-bold text-lg md:w-[200px]"
+      >
+        <ul
+          class="hidden flex-col gap-2 text-center md:flex md:text-left"
+        >
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/"
+              rel="noopener"
+              target="_blank"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/creating-packages"
+              rel="noopener"
+              target="_blank"
+            >
+              Creating Packages
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/api"
+              rel="noopener"
+              target="_blank"
+            >
+              API
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/config"
+              rel="noopener"
+              target="_blank"
+            >
+              configuration
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/pluggable-resolvers"
+              rel="noopener"
+              target="_blank"
+            >
+              Pluggable Resolvers
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/bower-tools"
+              rel="noopener"
+              target="_blank"
+            >
+              Tools
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline text-blue-light"
+              href="https://bower.io/docs/about"
+              rel="noopener"
+              target="_blank"
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section
+      class="flex flex-auto flex-col gap-4"
+    >
+      <div
+        class="flex flex-col items-center gap-2 sm:flex-row"
+      >
+        <input
+          autocomplete="off"
+          class="w-full rounded border border-gray p-2.5 px-2 text-lg font-medium leading-6 outline-none placeholder:italic focus:border-blue-light"
+          placeholder="Search..."
+          type="search"
+          value=""
+        />
+        <select
+          class="w-full rounded border border-gray p-2.5 px-2 leading-6 text-black-accent outline-none focus:border-blue-light basis-1/3"
+          data-testid="sort-projects"
+          name="Sort by"
+        >
+          <option
+            value=""
+          >
+            Sort by
+          </option>
+          <option
+            value="stars"
+          >
+            Stars
+          </option>
+          <option
+            value="rank"
+          >
+            Rank
+          </option>
+          <option
+            value="created_at"
+          >
+            Creation date
+          </option>
+          <option
+            value="latest_release_published_at"
+          >
+            Latest release
+          </option>
+          <option
+            value="contributions_count"
+          >
+            Contributions
+          </option>
+          <option
+            value="dependents_count"
+          >
+            Dependents
+          </option>
+          <option
+            value="dependent_repos_count"
+          >
+            Dependent repos
+          </option>
+        </select>
+      </div>
+      <section
+        class="grid grid-cols-1 content-start justify-center justify-items-center gap-x-3 gap-y-4 lg:grid-cols-2"
+        data-testid="cards-grid"
+      >
+        <a
+          class="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
+          data-testid="project-card"
+          href="https://github.com/microsoft/TypeScript"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between bg-white-accent p-2"
+          >
+            <div
+              class="flex items-baseline gap-1 truncate"
+            >
+              <h2
+                class="pb-0.5 text-lg font-bold"
+              >
+                typescript
+              </h2>
+              <p
+                class="text-xs text-black/60"
+              >
+                by microsoft
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1.5"
+            >
+              <p
+                class="text-xs text-black/60"
+              >
+                <span
+                  aria-label="number of stars"
+                  role="img"
+                >
+                  ⭐
+                </span>
+                 99k
+              </p>
+              <p
+                class="text-xs text-black/60 rounded bg-black/10 px-1 py-px"
+              >
+                v5.5.3
+              </p>
+            </div>
+          </div>
+          <div
+            class="my-auto p-2"
+          >
+            <p
+              class="line-clamp-2 text-black-accent"
+            >
+              TypeScript is a language for application scale JavaScript development
+            </p>
+          </div>
+        </a>
+        <a
+          class="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
+          data-testid="project-card"
+          href="https://github.com/DefinitelyTyped/DefinitelyTyped"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between bg-white-accent p-2"
+          >
+            <div
+              class="flex items-baseline gap-1 truncate"
+            >
+              <h2
+                class="pb-0.5 text-lg font-bold"
+              >
+                @types/node
+              </h2>
+              <p
+                class="text-xs text-black/60"
+              >
+                by DefinitelyTyped
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1.5"
+            >
+              <p
+                class="text-xs text-black/60"
+              >
+                <span
+                  aria-label="number of stars"
+                  role="img"
+                >
+                  ⭐
+                </span>
+                 48k
+              </p>
+              <p
+                class="text-xs text-black/60 rounded bg-black/10 px-1 py-px"
+              >
+                v20.14.10
+              </p>
+            </div>
+          </div>
+          <div
+            class="my-auto p-2"
+          >
+            <p
+              class="line-clamp-2 text-black-accent"
+            >
+              TypeScript definitions for node
+            </p>
+          </div>
+        </a>
+        <a
+          class="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
+          data-testid="project-card"
+          href="https://github.com/facebook/react-dom"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between bg-white-accent p-2"
+          >
+            <div
+              class="flex items-baseline gap-1 truncate"
+            >
+              <h2
+                class="pb-0.5 text-lg font-bold"
+              >
+                react-dom
+              </h2>
+              <p
+                class="text-xs text-black/60"
+              >
+                by facebook
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1.5"
+            >
+              <p
+                class="text-xs text-black/60"
+              >
+                <span
+                  aria-label="number of stars"
+                  role="img"
+                >
+                  ⭐
+                </span>
+                 225k
+              </p>
+              <p
+                class="text-xs text-black/60 rounded bg-black/10 px-1 py-px"
+              >
+                v18.3.1
+              </p>
+            </div>
+          </div>
+          <div
+            class="my-auto p-2"
+          >
+            <p
+              class="line-clamp-2 text-black-accent"
+            >
+              React package for working with the DOM.
+            </p>
+          </div>
+        </a>
+        <a
+          class="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
+          data-testid="project-card"
+          href="https://github.com/facebook/react"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between bg-white-accent p-2"
+          >
+            <div
+              class="flex items-baseline gap-1 truncate"
+            >
+              <h2
+                class="pb-0.5 text-lg font-bold"
+              >
+                react
+              </h2>
+              <p
+                class="text-xs text-black/60"
+              >
+                by facebook
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1.5"
+            >
+              <p
+                class="text-xs text-black/60"
+              >
+                <span
+                  aria-label="number of stars"
+                  role="img"
+                >
+                  ⭐
+                </span>
+                 225k
+              </p>
+              <p
+                class="text-xs text-black/60 rounded bg-black/10 px-1 py-px"
+              >
+                v18.3.1
+              </p>
+            </div>
+          </div>
+          <div
+            class="my-auto p-2"
+          >
+            <p
+              class="line-clamp-2 text-black-accent"
+            >
+              React is a JavaScript library for building user interfaces.
+            </p>
+          </div>
+        </a>
+        <a
+          class="flex max-h-fit min-h-28 w-full flex-col overflow-hidden rounded-md border border-gray bg-white hover:border-blue-light"
+          data-testid="project-card"
+          href="https://github.com/axios/axios"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between bg-white-accent p-2"
+          >
+            <div
+              class="flex items-baseline gap-1 truncate"
+            >
+              <h2
+                class="pb-0.5 text-lg font-bold"
+              >
+                axios
+              </h2>
+              <p
+                class="text-xs text-black/60"
+              >
+                by axios
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-1.5"
+            >
+              <p
+                class="text-xs text-black/60"
+              >
+                <span
+                  aria-label="number of stars"
+                  role="img"
+                >
+                  ⭐
+                </span>
+                 105k
+              </p>
+              <p
+                class="text-xs text-black/60 rounded bg-black/10 px-1 py-px"
+              >
+                v1.7.2
+              </p>
+            </div>
+          </div>
+          <div
+            class="my-auto p-2"
+          >
+            <p
+              class="line-clamp-2 text-black-accent"
+            >
+              Promise based HTTP client for the browser and node.js
+            </p>
+          </div>
+        </a>
+      </section>
+      <div
+        class="flex items-center gap-2 self-center"
+      >
+        <button
+          aria-label="Previous page"
+          class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+          disabled=""
+        >
+          ⬅︎
+        </button>
+        <span
+          class="font-bold"
+        >
+          1 / 1,708,216
+        </span>
+        <button
+          aria-label="Next page"
+          class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+        >
+          ➡︎
+        </button>
+      </div>
+    </section>
+  </div>
+  <footer
+    class="mt-12 px-2 text-sm"
+  >
+    <div
+      class="mx-auto max-w-5xl px-2 md:px-4 border-t border-gray py-3 pl-0"
+    >
+      <a
+        class="text-blue hover:underline my-4"
+        href="https://github.com/bower/bower.github.io/issues"
+        rel="noopener"
+        target="_blank"
+      >
+        Help improve these docs. Open an issue or pull request.
+      </a>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

@@ -1,3 +1,7 @@
+// README: ideally I would use react-query or similar library to manage server
+// state and caching, I don't expect this hook to work perfectly but its is
+// handy as a POC
+
 import { useState, useEffect } from 'react'
 
 export enum STATUS {

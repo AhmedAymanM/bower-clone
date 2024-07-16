@@ -3,4 +3,7 @@
 export const isObject = (
   element: unknown
 ): element is Record<string, unknown> =>
-  typeof element === 'object' && !Array.isArray(element) && element !== null
+  typeof element === 'object' &&
+  !Array.isArray(element) &&
+  element !== null &&
+  !(element instanceof Date)

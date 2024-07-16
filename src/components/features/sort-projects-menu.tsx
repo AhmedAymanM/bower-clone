@@ -50,6 +50,7 @@ export const SortProjectsOptions = ({
     <Select
       value={selectedSorting}
       name="Sort by"
+      data-testid="sort-projects"
       onChange={handleChangeSorting}
       className={className}
     >

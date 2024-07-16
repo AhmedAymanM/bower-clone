@@ -18,6 +18,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       href={isValidUrl ? project.repository_url : '#'}
       target="_blank"
       rel="noopener"
+      data-testid="project-card"
     >
       <div className="flex flex-wrap items-center justify-between bg-white-accent p-2">
         <div className="flex items-baseline gap-1 truncate">
@@ -59,7 +60,10 @@ const Subtitle = ({
 // project card and placeholder,should be reused in a common skeleton component
 const Placeholder = () => {
   return (
-    <div className="flex max-h-fit min-h-28 w-full animate-pulse flex-col overflow-hidden rounded-md border border-gray bg-white">
+    <div
+      className="flex max-h-fit min-h-28 w-full animate-pulse flex-col overflow-hidden rounded-md border border-gray bg-white"
+      data-testid="project-card-placeholder"
+    >
       <div className="flex flex-wrap items-center justify-between bg-white-accent p-2">
         <div className="h-4 w-1/4 bg-gray/40" />
 

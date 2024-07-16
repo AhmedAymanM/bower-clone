@@ -5,18 +5,18 @@ import { Button } from '@/components/ui/button'
 
 type PaginationProps = {
   totalPages: number
-  initialPage: number
+  selectedPage: number
   onPageChange?: (page: number) => void
   className?: ClassValue
 }
 
 export function Pagination({
-  initialPage = 1,
+  selectedPage = 1,
   totalPages,
   onPageChange,
   className,
 }: PaginationProps) {
-  const [currentPage, setCurrentPage] = useState(initialPage)
+  const [currentPage, setCurrentPage] = useState(selectedPage)
 
   const onGetPreviousPage = () => setCurrentPage(currentPage - 1)
   const onGetNextPage = () => setCurrentPage(currentPage + 1)
@@ -30,7 +30,7 @@ export function Pagination({
       <Button
         disabled={!currentPage || currentPage === 1}
         onClick={onGetPreviousPage}
-        aria-label="previous page"
+        aria-label="Previous page"
       >
         ⬅︎
       </Button>

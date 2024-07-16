@@ -1,4 +1,4 @@
-import { useCallback, useState, type FC } from 'react'
+import { useCallback, useState } from 'react'
 
 import {
   useProjects,
@@ -17,30 +17,31 @@ import { Message } from '@/components/ui/message'
 import { Pagination } from '@/components/ui/pagination'
 import { STATUS } from '@/hooks/useAsync'
 
-export const App: FC = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
-  const [sort, setSort] = useState<sortProjectsEnum>()
+// README: I introduce this separation to make testing easier, and avoid testing
+//implementation details, ideally I would avoid this separation if not needed and write
+// integration/e2e tests with cypress or similar with help of stubbed/mocked
+// data using tools like msw depending on our API, but this is a quick POC
 
-  const { data: { data: projects, totalCount = 0 } = {}, status } = useProjects(
-    {
-      q: searchQuery,
-      page: currentPage,
-      sort,
-    }
-  )
+export type AppProps = {
+  searchQuery: string
+  setCurrentPage: (page: number) => void
+  sort?: sortProjectsEnum
+  handleSearchChange: (query: string) => void
+  handleSortChange: (sortBy: sortProjectsEnum) => void
+  projects: ReturnType<typeof useProjects>
+}
+
+export const App = ({
+  searchQuery,
+  setCurrentPage,
+  sort,
+  handleSearchChange,
+  handleSortChange,
+  projects,
+}: AppProps) => {
+  const { data: { data: projectsData, totalCount = 0 } = {}, status } = projects
+
   const totalNavPages = Math.ceil(totalCount / PROJECTS_PER_PAGE)
-
-  const handleSearchChange = useCallback((query: string) => {
-    setSort(undefined)
-    setCurrentPage(1)
-    setSearchQuery(query)
-  }, [])
-
-  const handleSortChange = useCallback((sortBy: sortProjectsEnum) => {
-    setCurrentPage(1)
-    setSort(sortBy)
-  }, [])
 
   return (
     <>
@@ -58,7 +59,7 @@ export const App: FC = () => {
             />
           </div>
           <CardsGrid>
-            {projects?.map((project) => (
+            {projectsData?.map((project) => (
               <ProjectCard
                 project={project}
                 key={project.name + project.stars}
@@ -74,7 +75,7 @@ export const App: FC = () => {
               </>
             )}
           </CardsGrid>
-          {status === STATUS.SUCCESS && !projects?.length && (
+          {status === STATUS.SUCCESS && !projectsData?.length && (
             <Message
               className="pt-2"
               title="No matching results"
@@ -82,7 +83,7 @@ export const App: FC = () => {
             />
           )}
 
-          {status === STATUS.ERROR && !projects && (
+          {status === STATUS.ERROR && !projectsData && (
             <Message
               title="Something went wrong"
               description="Please try again!"
@@ -91,14 +92,14 @@ export const App: FC = () => {
           {status === STATUS.LOADING && (
             <Pagination
               className="self-center"
-              initialPage={0}
+              selectedPage={0}
               totalPages={0}
             />
           )}
           {totalNavPages > 1 && (
             <Pagination
               className="self-center"
-              initialPage={currentPage}
+              selectedPage={1}
               onPageChange={setCurrentPage}
               totalPages={totalNavPages}
             />
@@ -109,3 +110,39 @@ export const App: FC = () => {
     </>
   )
 }
+
+const AppWrapper = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [sort, setSort] = useState<sortProjectsEnum>()
+
+  const projects = useProjects({
+    q: searchQuery,
+    page: currentPage,
+    sort,
+  })
+
+  const handleSearchChange = useCallback((query: string) => {
+    setSort(undefined)
+    setCurrentPage(1)
+    setSearchQuery(query)
+  }, [])
+
+  const handleSortChange = useCallback((sortBy: sortProjectsEnum) => {
+    setCurrentPage(1)
+    setSort(sortBy)
+  }, [])
+
+  return (
+    <App
+      projects={projects}
+      handleSortChange={handleSortChange}
+      handleSearchChange={handleSearchChange}
+      searchQuery={searchQuery}
+      setCurrentPage={setCurrentPage}
+      sort={sort}
+    />
+  )
+}
+
+export default AppWrapper

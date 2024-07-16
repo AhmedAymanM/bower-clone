@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination component > snapshot matches > 
+      <DocumentFragment>
+        <div
+          class="flex items-center gap-2"
+        >
+          <button
+            aria-label="Previous page"
+            class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+            disabled=""
+          >
+            ⬅︎
+          </button>
+          <span
+            class="font-bold"
+          >
+            1 / 5
+          </span>
+          <button
+            aria-label="Next page"
+            class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+          >
+            ➡︎
+          </button>
+        </div>
+      </DocumentFragment>
+     1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-2"
+  >
+    <button
+      aria-label="Previous page"
+      class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+      disabled=""
+    >
+      ⬅︎
+    </button>
+    <span
+      class="font-bold"
+    >
+      1 / 5
+    </span>
+    <button
+      aria-label="Next page"
+      class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+    >
+      ➡︎
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Pagination component > snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-2"
+  >
+    <button
+      aria-label="Previous page"
+      class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+      disabled=""
+    >
+      ⬅︎
+    </button>
+    <span
+      class="font-bold"
+    >
+      1 / 5
+    </span>
+    <button
+      aria-label="Next page"
+      class="rounded-sm border border-solid border-gray p-2 text-lg font-bold text-blue-light hover:border-blue-light disabled:cursor-not-allowed disabled:border-gray/75 disabled:text-gray"
+    >
+      ➡︎
+    </button>
+  </div>
+</DocumentFragment>
+`;
