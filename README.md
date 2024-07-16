@@ -3,8 +3,8 @@
 A demo react app that mimics behaviour of
 [bower.io/search](https://bower.io/search/).
 
-To run project please please add `.env.development` file with your [libraries.io](https://libraries.io/api) API
-key. `.env.development.example` file is provided as an example.
+**To run project please please add `.env.development` file with your [libraries.io](https://libraries.io/api) API
+key. `.env.development.example` file is provided as an example.**
 
 You can get your API key from [libraries.io](https://libraries.io/api).
 
