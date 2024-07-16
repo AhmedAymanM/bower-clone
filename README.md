@@ -58,7 +58,8 @@ relevant directory (like components, hooks, utils, etc.)
 
 # Known Issues
 
-- debounced search might not work as expected, and might return no the expected results
+- Debounced search might not work as expected, and might not return the expected results
+- Pagination data is zero between page changes, though it gets updated correctly 
 
 ## Useful Scripts
 
